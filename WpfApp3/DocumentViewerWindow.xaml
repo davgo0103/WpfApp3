@@ -6,13 +6,37 @@
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
         Title="DocumentViewerWindow" Height="450" Width="800">
+        <Window.CommandBindings>
+            <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed"/>
+            <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed"/>
+        </Window.CommandBindings>
     <DockPanel LastChildFill="False" Background="#FFE4FFC3">
         <ToolBar DockPanel.Dock="Top" Height="32">
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30">
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/openfileicon.ico"/>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="ApplicationCommands.Open">
+                <Button.Background>
+                    <SolidColorBrush Opacity="1"/>
+                </Button.Background>
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/openfileicon.ico" Opacity="1"/>
             </Button>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30">
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/newfile.png"/>
+            </Button>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="ApplicationCommands.Save">
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/save.png"/>
+            </Button>
+            <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleBold">
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/bold.png"/>
+            </ToggleButton>
+            <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleItalic">
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/italic.png"/>
+            </ToggleButton>
+            <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleUnderline">
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/underline.png"/>
+            </ToggleButton>
+            <ComboBox x:Name="cmbFontFamily" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="28" SelectionChanged="cmbFontFamily_SelectionChanged"/>
+            <ComboBox x:Name="cmbFontSize" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="28"/>
         </ToolBar>
-        <RichTextBox DockPanel.Dock="Top">
+        <RichTextBox x:Name="rtbEditor" DockPanel.Dock="Top" Background="{x:Null}" Height="402">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="RichTextBox"/>

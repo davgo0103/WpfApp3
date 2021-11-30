@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +24,40 @@ namespace WpfApp3
         public DocumentViewerWindow()
         {
             InitializeComponent();
+            cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
+            cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 32, 64, 72, 96 };
+        }
+
+        private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Rich Text Format|*.rtf|All Files|*.*";
+            if(openFileDialog.ShowDialog() == true)
+            {
+                FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open);
+                TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+                range.Load(fs, DataFormats.Rtf);
+            }
+        }
+
+        private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Rich Text Format|*.rtf|All Files|*.*";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                FileStream fs = new FileStream(saveFileDialog.FileName, FileMode.Create);
+                TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+                range.Save(fs, DataFormats.Rtf);
+            }
+        }
+
+        private void cmbFontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(cmbFontFamily.SelectedItem != null)
+            {
+                rtbEditor.Selection.ApplyPropertyValue(Inline.FontFamilyProperty,cmbFontFamily.SelectedItem.ToString());
+            }
         }
     }
 }

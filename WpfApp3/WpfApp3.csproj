@@ -104,5 +104,20 @@
   <ItemGroup>
     <Resource Include="openfileicon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="newfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="italic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="underline.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
