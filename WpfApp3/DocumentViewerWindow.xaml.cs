@@ -59,5 +59,13 @@ namespace WpfApp3
                 rtbEditor.Selection.ApplyPropertyValue(Inline.FontFamilyProperty,cmbFontFamily.SelectedItem.ToString());
             }
         }
+
+        private void cmbFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(cmbFontSize.SelectedItem != null)
+            {
+                rtbEditor.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cmbFontSize.SelectedItem.ToString());
+            }
+        }
     }
 }

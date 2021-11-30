@@ -34,7 +34,7 @@
                 <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/underline.png"/>
             </ToggleButton>
             <ComboBox x:Name="cmbFontFamily" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="28" SelectionChanged="cmbFontFamily_SelectionChanged"/>
-            <ComboBox x:Name="cmbFontSize" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="28"/>
+            <ComboBox x:Name="cmbFontSize" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="28" SelectionChanged="cmbFontSize_SelectionChanged"/>
         </ToolBar>
         <RichTextBox x:Name="rtbEditor" DockPanel.Dock="Top" Background="{x:Null}" Height="402">
             <FlowDocument>
