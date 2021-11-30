@@ -6,5 +6,18 @@
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
         Title="DocumentViewerWindow" Height="450" Width="800">
-    <DockPanel LastChildFill="False"/>
+    <DockPanel LastChildFill="False" Background="#FFE4FFC3">
+        <ToolBar DockPanel.Dock="Top" Height="32">
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30">
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/openfileicon.ico"/>
+            </Button>
+        </ToolBar>
+        <RichTextBox DockPanel.Dock="Top">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </DockPanel>
 </Window>

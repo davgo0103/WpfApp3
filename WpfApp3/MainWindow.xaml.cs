@@ -28,7 +28,8 @@ namespace WpfApp3
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DocumentViewerWindow documentViewerWindow = new DocumentViewerWindow();
+            documentViewerWindow.ShowDialog();
         }
     }
 }
