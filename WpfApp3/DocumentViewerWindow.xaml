@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
         Title="DocumentViewerWindow" Height="450" Width="800">
-        <Window.CommandBindings>
-            <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed"/>
-            <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed"/>
-        </Window.CommandBindings>
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed"/>
+    </Window.CommandBindings>
     <DockPanel LastChildFill="False" Background="#FFE4FFC3">
-        <ToolBar DockPanel.Dock="Top" Height="32">
-            <Menu>
-                <MenuItem Header="檔案"/>
+        <ToolBar DockPanel.Dock="Top" Height="32" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Menu HorizontalAlignment="Center" VerticalAlignment="Center">
+                <MenuItem Header="檔案" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
                 <MenuItem Header="格式"/>
                 <MenuItem Header="編輯"/>
             </Menu>
@@ -21,22 +21,22 @@
                 <Button.Background>
                     <SolidColorBrush Opacity="1"/>
                 </Button.Background>
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/openfileicon.ico" Opacity="1" Stretch="Fill"/>
+                <Image Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/openfileicon.ico" Opacity="1" Stretch="Fill"/>
             </Button>
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Padding="0,0,0,0">
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/newfile.png" Stretch="Fill"/>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30" Padding="0,0,0,0">
+                <Image Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/newfile.png" Stretch="Fill"/>
             </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="ApplicationCommands.Save" Padding="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible">
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/save.png" Stretch="Fill"/>
+                <Image Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/save.png" Stretch="Fill"/>
             </Button>
             <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleBold" Padding="0,0,0,0">
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/bold.png" Stretch="Fill"/>
+                <Image Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/bold.png" Stretch="Fill"/>
             </ToggleButton>
             <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleItalic" Padding="0,0,0,0">
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/italic.png"/>
+                <Image Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/italic.png"/>
             </ToggleButton>
             <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleUnderline" Padding="0,0,0,0">
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/underline.png" Stretch="Fill"/>
+                <Image Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/underline.png" Stretch="Fill"/>
             </ToggleButton>
             <ComboBox x:Name="cmbFontFamily" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="28" SelectionChanged="cmbFontFamily_SelectionChanged"/>
             <ComboBox x:Name="cmbFontSize" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="28" SelectionChanged="cmbFontSize_SelectionChanged"/>
