@@ -12,26 +12,31 @@
         </Window.CommandBindings>
     <DockPanel LastChildFill="False" Background="#FFE4FFC3">
         <ToolBar DockPanel.Dock="Top" Height="32">
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="ApplicationCommands.Open">
+            <Menu>
+                <MenuItem Header="檔案"/>
+                <MenuItem Header="格式"/>
+                <MenuItem Header="編輯"/>
+            </Menu>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="ApplicationCommands.Open" Padding="0,0,0,0">
                 <Button.Background>
                     <SolidColorBrush Opacity="1"/>
                 </Button.Background>
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/openfileicon.ico" Opacity="1"/>
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/openfileicon.ico" Opacity="1" Stretch="Fill"/>
             </Button>
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30">
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/newfile.png"/>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Padding="0,0,0,0">
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/newfile.png" Stretch="Fill"/>
             </Button>
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="ApplicationCommands.Save">
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/save.png"/>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="ApplicationCommands.Save" Padding="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/save.png" Stretch="Fill"/>
             </Button>
-            <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleBold">
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/bold.png"/>
+            <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleBold" Padding="0,0,0,0">
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/bold.png" Stretch="Fill"/>
             </ToggleButton>
-            <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleItalic">
+            <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleItalic" Padding="0,0,0,0">
                 <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/italic.png"/>
             </ToggleButton>
-            <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleUnderline">
-                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/underline.png"/>
+            <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleUnderline" Padding="0,0,0,0">
+                <Image Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/underline.png" Stretch="Fill"/>
             </ToggleButton>
             <ComboBox x:Name="cmbFontFamily" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="28" SelectionChanged="cmbFontFamily_SelectionChanged"/>
             <ComboBox x:Name="cmbFontSize" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="28" SelectionChanged="cmbFontSize_SelectionChanged"/>
