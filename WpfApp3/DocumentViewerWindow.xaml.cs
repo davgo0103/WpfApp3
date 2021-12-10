@@ -28,7 +28,7 @@ namespace WpfApp3
             cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 32, 64, 72, 96 };
         }
 
-        private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void Open_Executed(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Rich Text Format|*.rtf|All Files|*.*";
@@ -67,5 +67,11 @@ namespace WpfApp3
                 rtbEditor.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cmbFontSize.SelectedItem.ToString());
             }
         }
+
+        private void Open_New(object sender, RoutedEventArgs e)
+        {
+            TextBOX.Text = "";
+        }
+
     }
 }

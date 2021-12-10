@@ -12,8 +12,11 @@
     </Window.CommandBindings>
     <DockPanel LastChildFill="False" Background="#FFE4FFC3">
         <ToolBar DockPanel.Dock="Top" Height="32" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Menu HorizontalAlignment="Center" VerticalAlignment="Center">
-                <MenuItem Header="檔案" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+            <Menu HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <MenuItem Header="檔案" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <MenuItem Header="開新檔案" Click="Open_New"/>
+                    <MenuItem Header="開啟舊檔" Click="Open_Executed"/>
+                </MenuItem>
                 <MenuItem Header="格式"/>
                 <MenuItem Header="編輯"/>
             </Menu>
@@ -41,10 +44,10 @@
             <ComboBox x:Name="cmbFontFamily" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="28" SelectionChanged="cmbFontFamily_SelectionChanged"/>
             <ComboBox x:Name="cmbFontSize" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="28" SelectionChanged="cmbFontSize_SelectionChanged"/>
         </ToolBar>
-        <RichTextBox x:Name="rtbEditor" DockPanel.Dock="Top" Background="{x:Null}" Height="402">
+        <RichTextBox x:Name="rtbEditor" DockPanel.Dock="Top" Background="{x:Null}" Height="402" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <FlowDocument>
                 <Paragraph>
-                    <Run Text="RichTextBox"/>
+                    <Run x:Name="TextBOX" Text="RichTextBox"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
