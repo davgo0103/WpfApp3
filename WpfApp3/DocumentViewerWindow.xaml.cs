@@ -40,7 +40,7 @@ namespace WpfApp3
             }
         }
 
-        private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void Save_Executed(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Rich Text Format|*.rtf|All Files|*.*";
@@ -73,5 +73,9 @@ namespace WpfApp3
             TextBOX.Text = "";
         }
 
+        private void Quit(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
