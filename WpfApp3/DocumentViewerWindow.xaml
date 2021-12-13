@@ -10,8 +10,8 @@
         <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed"/>
         <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed"/>
     </Window.CommandBindings>
-    <DockPanel LastChildFill="False" Background="#FFE4FFC3">
-        <ToolBar DockPanel.Dock="Top" Height="32" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <StackPanel>
+        <ToolBar Height="32">
             <Menu HorizontalAlignment="Stretch" VerticalAlignment="Center">
                 <MenuItem Header="檔案" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                     <MenuItem Header="開新檔案" Click="Open_New"/>
@@ -20,11 +20,11 @@
                     <MenuItem Header="離開" Click="Quit"/>
                 </MenuItem>
                 <MenuItem Header="編輯">
-                    <MenuItem/>
-                    <MenuItem/>
-                    <MenuItem/>
-                    <MenuItem/>
-                    <MenuItem/>
+                    <MenuItem Header="剪下" Command="ApplicationCommands.Cut"/>
+                    <MenuItem Header="複製" Command="ApplicationCommands.Copy"/>
+                    <MenuItem Header="貼上" Command="ApplicationCommands.Paste"/>
+                    <MenuItem Header="全選" Command="ApplicationCommands.SelectAll"/>
+                    <MenuItem Header="清除所有內容" Click="Open_New"/>
                 </MenuItem>
             </Menu>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="ApplicationCommands.Open" Padding="0,0,0,0">
@@ -53,12 +53,18 @@
             <ComboBox x:Name="cmbFontFamily" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="28" SelectionChanged="cmbFontFamily_SelectionChanged"/>
             <ComboBox x:Name="cmbFontSize" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="28" SelectionChanged="cmbFontSize_SelectionChanged"/>
         </ToolBar>
-        <RichTextBox x:Name="rtbEditor" DockPanel.Dock="Top" Background="{x:Null}" Height="402" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <FlowDocument>
-                <Paragraph>
-                    <Run x:Name="TextBOX" Text="RichTextBox"/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-    </DockPanel>
+        <DockPanel Background="#FFE4FFC3" MinHeight="350" MaxHeight="1000" >
+            <RichTextBox x:Name="rtbEditor" DockPanel.Dock="Top"  Background="{x:Null}" VerticalContentAlignment="Top" ScrollViewer.CanContentScroll="True" MinHeight="350" HorizontalScrollBarVisibility="Hidden" HorizontalContentAlignment="Left" KeyDown="TextBOX_DataContextChanged" KeyUp="TextBOX_DataContextChanged">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run x:Name="TextBOX" Text="RichTextBox" KeyDown="TextBOX_DataContextChanged" KeyUp="TextBOX_DataContextChanged"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </DockPanel>
+        <StatusBar HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+            <Label x:Name="L1" Content="檔名:未設定"/>
+            <Label x:Name="L2" Content="Label" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" HorizontalContentAlignment="Left" Margin="603,0,0,0"/>
+        </StatusBar>
+    </StackPanel>
 </Window>

@@ -39,6 +39,7 @@ namespace WpfApp3
                 FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open);
                 TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
                 range.Load(fs, DataFormats.Rtf);
+                L1.Content = $"檔名:{fs.Name}";
             }
         }
 
@@ -102,6 +103,11 @@ namespace WpfApp3
             currentStrokeBrush = new SolidColorBrush(currentStrokeColor);
             Font_BackGround.Background = currentStrokeBrush;
             rtbEditor.Background = currentStrokeBrush;
+        }
+ 
+        private void TextBOX_DataContextChanged(object sender, KeyEventArgs e)
+        {
+            L2.Content = $"字數:{TextBOX.Text.Length}";
         }
     }
 }
