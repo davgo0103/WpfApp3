@@ -21,6 +21,8 @@ namespace WpfApp3
     /// </summary>
     public partial class DocumentViewerWindow : Window
     {
+        Color currentStrokeColor;
+        Brush currentStrokeBrush = new SolidColorBrush(Colors.Black);
         public DocumentViewerWindow()
         {
             InitializeComponent();
@@ -76,6 +78,30 @@ namespace WpfApp3
         private void Quit(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+        private Color GetDialogColor()
+        {
+
+            System.Windows.Forms.ColorDialog dlg = new System.Windows.Forms.ColorDialog();
+            dlg.ShowDialog();
+
+            System.Drawing.Color dlgColor = dlg.Color;
+            return Color.FromArgb(dlgColor.A, dlgColor.R, dlgColor.G, dlgColor.B);
+        }
+        private void FontColor_Button_Click(object sender, RoutedEventArgs e)
+        {
+            currentStrokeColor = GetDialogColor();
+            currentStrokeBrush = new SolidColorBrush(currentStrokeColor);
+            Font_color.Background = currentStrokeBrush;
+            rtbEditor.Foreground = currentStrokeBrush;
+        }
+
+        private void Font_BackGround_Click(object sender, RoutedEventArgs e)
+        {
+            currentStrokeColor = GetDialogColor();
+            currentStrokeBrush = new SolidColorBrush(currentStrokeColor);
+            Font_BackGround.Background = currentStrokeBrush;
+            rtbEditor.Background = currentStrokeBrush;
         }
     }
 }

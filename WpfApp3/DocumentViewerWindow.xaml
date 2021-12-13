@@ -19,7 +19,13 @@
                     <MenuItem Header="儲存檔案" Click="Save_Executed"/>
                     <MenuItem Header="離開" Click="Quit"/>
                 </MenuItem>
-                <MenuItem Header="編輯"/>
+                <MenuItem Header="編輯">
+                    <MenuItem/>
+                    <MenuItem/>
+                    <MenuItem/>
+                    <MenuItem/>
+                    <MenuItem/>
+                </MenuItem>
             </Menu>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="ApplicationCommands.Open" Padding="0,0,0,0">
                 <Button.Background>
@@ -42,8 +48,8 @@
             <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Command="EditingCommands.ToggleUnderline" Padding="0,0,0,0">
                 <Image Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/underline.png" Stretch="Fill"/>
             </ToggleButton>
-            <Button VerticalAlignment="Center" Padding="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" Content="文字顏色"/>
-            <Button Padding="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" Content="背景顏色"/>
+            <Button x:Name="Font_color" VerticalAlignment="Center" Padding="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" Content="文字顏色" Click="FontColor_Button_Click"/>
+            <Button x:Name="Font_BackGround" Padding="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" Content="背景顏色" Click="Font_BackGround_Click"/>
             <ComboBox x:Name="cmbFontFamily" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="28" SelectionChanged="cmbFontFamily_SelectionChanged"/>
             <ComboBox x:Name="cmbFontSize" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="28" SelectionChanged="cmbFontSize_SelectionChanged"/>
         </ToolBar>
